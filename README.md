@@ -1,71 +1,73 @@
-# ProductHub - Your Ultimate Product Management App
-A modern full-stack application for managing products with React frontend and Node.js/Express backend.
+# 🚀 ProductHub - Modern Product Management System
 
-<img src="./Website Screenshots/1.png">
+![ProductHub Banner](./Website%20Screenshots/1.png)
 
-## Features
+A sleek, full-stack product management solution with React-powered frontend and Node.js/Express backend. Built for efficiency and scalability.
 
-- **Product Management**
-  - Create, read, update, and delete products
-  - Product categorization and inventory tracking
-  - Image uploads for products
-  - Search and filter functionality
+## ✨ Key Features
 
-- **Modern UI**
-  - Responsive design with Tailwind CSS
-  - Animations with Framer Motion
-  - Interactive components
+### 🛠️ Product Operations
+| Feature | Description |
+|---------|-------------|
+| **CRUD Operations** | Full product lifecycle management |
+| **Smart Inventory** | Real-time stock tracking with status indicators |
+| **Media Handling** | Drag & drop image uploads with preview |
+| **Advanced Search** | Filter by name, category, availability |
 
-- **Backend API**
-  - RESTful API with Express.js
-  - MySQL database with Sequelize ORM
-  - File upload handling
+### 🎨 UI/UX Highlights
+- **Responsive Design**: Flawless on all devices
+- **Motion UI**: Smooth animations with Framer Motion
+- **Dark/Light Mode**: Eye-friendly themes (coming soon)
+- **Dashboard Analytics**: Product insights at a glance
 
-## Technologies Used
+### ⚙️ Backend Power
+- RESTful API with JWT authentication
+- MySQL database with Sequelize ORM
+- Optimized file upload handling
+- Rate limiting and security middleware
+
+## 🛠️ Tech Stack
 
 ### Frontend
-- React 18
-- Vite (build tool)
-- Tailwind CSS
-- Framer Motion (animations)
-- React Router (navigation)
-- Axios (HTTP client)
+| Technology | Purpose |
+|------------|---------|
+| React 18 | Component-based UI |
+| Vite | Blazing fast builds |
+| Tailwind CSS | Utility-first styling |
+| Framer Motion | Interactive animations |
+| React Query | Smart data fetching |
 
 ### Backend
-- Node.js
-- Express.js
-- MySQL
-- Sequelize (ORM)
-- Multer (file uploads)
-- Dotenv (environment variables)
+| Technology | Purpose |
+|------------|---------|
+| Node.js 20 | Runtime environment |
+| Express.js | API framework |
+| MySQL 8 | Relational database |
+| Sequelize | Type-safe ORM |
+| Multer | Secure file uploads |
 
-## Project Structure
-```
-product-management-app/
-├── backend/ # Backend server code
-│ ├── config/ # Database configuration
-│ ├── controllers/ # Route controllers
-│ ├── middleware/ # Custom middleware
-│ ├── models/ # Sequelize models
-│ ├── routes/ # API routes
-│ ├── uploads/ # Uploaded images storage
-│ ├── app.js # Express app setup
-│ ├── .env # Environment variables
-│ └── server.js # Server entry point
+## 📁 Project Structure
+
+```bash
+producthub/
+├── backend/          # API Server
+│   ├── config/       # DB configurations
+│   ├── controllers/  # Business logic
+│   ├── middleware/   # Auth & validation
+│   ├── models/       # Database models
+│   ├── routes/       # API endpoints
+│   └── services/     # Core business logic
 │
-├── frontend/ # Frontend React app
-│ ├── public/ # Static assets
-│ ├── src/
-│ │ ├── assets/ # Images, styles
-│ │ ├── components/ # Reusable components
-│ │ ├── pages/ # Page components
-│ │ ├── services/ # API service layer
-│ │ ├── App.jsx # Main app component
-│ │ └── main.jsx # App entry point
-│ ├── tailwind.config.js
-│ ├── postcss.config.js
-│ └── vite.config.js # Vite configuration
-└── README.md # This file
+├── frontend/         # React Application
+│   ├── public/       # Static assets
+│   └── src/
+│       ├── assets/   # Global styles & images
+│       ├── components/ # Reusable UI
+│       ├── features/  # Feature-based modules
+│       ├── hooks/     # Custom React hooks
+│       └── utils/     # Helpers & constants
+│
+└── docs/             # Documentation assets
 ```
 
 ## 📸 App Screenshots
@@ -79,10 +81,12 @@ product-management-app/
      <img src="./Website Screenshots/7.png" width="45%" alt="Movie Details">
      <img src="./Website Screenshots/8.png" width="45%" alt="Movie Details">
      <img src="./Website Screenshots/9.png" width="45%" alt="Movie Details">
-     <img src="./Website Screenshots/10.png" width="45%" alt="Movie Details">  
+     <img src="./Website Screenshots/10.png" width="45%" alt="Movie Details">
+     <img src="./Website Screenshots/mobile_mode.png" width="90.5%" alt="Movie Details">
+    
   </div>
 
-## Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
 
@@ -144,27 +148,31 @@ product-management-app/
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
       );
      ```
-### Running the Application
 
-  1. Start the backend server:
+ 2. Run migration:
      
      ```
      cd backend
-     npm run dev
+     npx sequelize-cli db:migrate
      ```
-2. Start the frontend development server:
+     
+### Running Locally
 
-   ```
-   cd ../frontend
-   npm run dev
-   ```
-3. Open your browser and navigate to:
+  1. Running Locally
+     ```
+     # Start backend (http://localhost:5000)
+       npm run dev:backend
+        
+     # Start frontend (http://localhost:5173)
+       npm run dev:frontend
+     ```
+  2. Open your browser and navigate to:
 
    ```
    http://localhost:5173
    ```
 
-### Deployment
+### 🌐 Deployment
 
 1. Backend
    
@@ -180,7 +188,7 @@ product-management-app/
       ```
    2. Deploy the dist folder to your hosting provider (Netlify, Vercel, etc.)
   
-### Contributing
+### 🤝 Contributing
 
 1. Fork the project
 2. Create your feature branch (git checkout -b feature/AmazingFeature)
