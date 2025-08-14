@@ -9,12 +9,12 @@ const ProductCard = ({ product, onDelete }) => {
       whileHover={{ y: -5 }}
       className="product-card bg-white rounded-xl shadow-md overflow-hidden border border-secondary-default hover:shadow-lg transition-all duration-300"
     >
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-48 overflow-hidden flex items-center justify-center bg-white">
         {product.image ? (
           <img
             src={product.image ? product.image : 'No Product Image Here'}
             alt={product.name}
-            className="w-full h-48 object-cover rounded-lg"
+            className="max-h-full max-w-full object-contain rounded-lg"
           />
         ) : (
           <div className="w-full h-full bg-primary-light flex items-center justify-center">
