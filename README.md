@@ -1,5 +1,4 @@
-# Product Management App - Transform Your Product Workflow
-
+# ProductHub - Your Ultimate Product Management App
 A modern full-stack application for managing products with React frontend and Node.js/Express backend.
 
 <img src="./Website Screenshots/1.png">
