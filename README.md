@@ -12,16 +12,13 @@ A sleek, full-stack product management solution with React-powered frontend and 
 | **CRUD Operations** | Full product lifecycle management |
 | **Smart Inventory** | Real-time stock tracking with status indicators |
 | **Media Handling** | Drag & drop image uploads with preview |
-| **Advanced Search** | Filter by name, category, availability |
+| **Advanced Search** | Filter by name, category |
 
 ### 🎨 UI/UX Highlights
 - **Responsive Design**: Flawless on all devices
 - **Motion UI**: Smooth animations with Framer Motion
-- **Dark/Light Mode**: Eye-friendly themes (coming soon)
-- **Dashboard Analytics**: Product insights at a glance
 
 ### ⚙️ Backend Power
-- RESTful API with JWT authentication
 - MySQL database with Sequelize ORM
 - Optimized file upload handling
 - Rate limiting and security middleware
