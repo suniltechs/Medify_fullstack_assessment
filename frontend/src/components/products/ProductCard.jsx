@@ -12,7 +12,7 @@ const ProductCard = ({ product, onDelete }) => {
       <div className="relative h-48 overflow-hidden">
         {product.image ? (
           <img
-            src={product.image ? `http://localhost:5000${product.image}` : '/images/placeholder-product.jpg'}
+            src={product.image ? product.image : 'No Product Image Here'}
             alt={product.name}
             className="w-full h-48 object-cover rounded-lg"
           />
