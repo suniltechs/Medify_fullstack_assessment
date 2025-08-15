@@ -126,27 +126,27 @@ producthub/
     
   ### Database Setup
   
-  1. Create a MySQL database:
+1. Create a MySQL database:
 
-     ```
-      CREATE DATABASE IF NOT EXISTS product_manager;
-      USE product_manager;
-      
-      CREATE TABLE IF NOT EXISTS products (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(255) NOT NULL,
-        description TEXT NOT NULL,
-        category VARCHAR(255) NOT NULL,
-        stockQuantity INT NOT NULL,
-        availability ENUM('in-stock', 'out-of-stock', 'pre-order', 'discontinued') NOT NULL DEFAULT 'in-stock',
-        price DECIMAL(10, 2) NOT NULL,
-        image VARCHAR(255),
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-        CHECK (stockQuantity >= 0),
-        CHECK (price >= 0)
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-     ```
+   ```
+    CREATE DATABASE IF NOT EXISTS product_manager;
+    USE product_manager;
+    
+    CREATE TABLE IF NOT EXISTS products (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      name VARCHAR(255) NOT NULL,
+      description TEXT NOT NULL,
+      category VARCHAR(255) NOT NULL,
+      stockQuantity INT NOT NULL,
+      availability ENUM('in-stock', 'out-of-stock', 'pre-order', 'discontinued') NOT NULL DEFAULT 'in-stock',
+      price DECIMAL(10, 2) NOT NULL,
+      image VARCHAR(255),
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+      CHECK (stockQuantity >= 0),
+      CHECK (price >= 0)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+   ```
      
 ### Running Locally
 
@@ -159,26 +159,26 @@ producthub/
        npm run dev
      ```
   2. Open your browser and navigate to:
-
-   ```
-   http://localhost:5173
-   ```
+  
+     ```
+     http://localhost:5173
+     ```
 
 ### 🌐 Deployment
 
-1. Backend
-   
-   - Set up a MySQL database on your hosting provider
-   - Configure environment variables in production
-   - Use PM2 or similar process manager for Node.js
+  #### Backend
+ 
+ - Set up a MySQL database on your hosting provider
+ - Configure environment variables in production
+ - Use PM2 or similar process manager for Node.js
      
-2. Frontend
-   1. Build the production bundle:
-      
-      ```
-      npm run build
-      ```
-   2. Deploy the dist folder to your hosting provider (Netlify, Vercel, etc.)
+  #### Frontend
+ 1. Build the production bundle:
+    
+    ```
+    npm run build
+    ```
+ 2. Deploy the dist folder to your hosting provider (Netlify, Vercel, etc.)
   
 ### 🤝 Contributing
 
