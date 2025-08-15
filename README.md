@@ -129,21 +129,23 @@ producthub/
   1. Create a MySQL database:
 
      ```
-     CREATE DATABASE product_management;
-     USE product_management;
-
-     CREATE TABLE products (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(255) NOT NULL,
-        description TEXT NOT NULL,
-        category VARCHAR(255) NOT NULL,
-        stockQuantity INT NOT NULL,
-        availability ENUM('in-stock', 'out-of-stock', 'pre-order', 'discontinued') NOT NULL DEFAULT 'in-stock',
-        price DECIMAL(10,2) NOT NULL,
-        image VARCHAR(255),
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-      );
+    CREATE DATABASE IF NOT EXISTS product_manager;
+    USE product_manager;
+    
+    CREATE TABLE IF NOT EXISTS products (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      name VARCHAR(255) NOT NULL,
+      description TEXT NOT NULL,
+      category VARCHAR(255) NOT NULL,
+      stockQuantity INT NOT NULL,
+      availability ENUM('in-stock', 'out-of-stock', 'pre-order', 'discontinued') NOT NULL DEFAULT 'in-stock',
+      price DECIMAL(10, 2) NOT NULL,
+      image VARCHAR(255),
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+      CHECK (stockQuantity >= 0),
+      CHECK (price >= 0)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
      ```
 
  2. Run migration:
