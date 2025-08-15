@@ -13,6 +13,8 @@ export const Input = ({
   helperText,
   disabled = false,
   required = false,
+  multiline = false,
+  rows = 3,
   className = '',
   ...props
 }) => {
@@ -21,7 +23,7 @@ export const Input = ({
   return (
     <div className={`mb-4 ${className}`}>
       {label && (
-        <label 
+        <label
           htmlFor={name}
           className={`block text-sm font-medium mb-1 ${
             error ? 'text-red-600' : 'text-gray-700'
@@ -31,41 +33,59 @@ export const Input = ({
           {required && <span className="text-red-500 ml-1">*</span>}
         </label>
       )}
-      
+
       <motion.div
         animate={{
-          borderColor: error 
-            ? '#dc2626' 
-            : isFocused 
-              ? '#4f46e5' 
+          borderColor: error
+            ? '#dc2626'
+            : isFocused
+              ? '#4f46e5'
               : '#d1d5db',
-          boxShadow: isFocused && !error 
-            ? '0 0 0 3px rgba(79, 70, 229, 0.1)' 
-            : 'undefined'
+          boxShadow: error
+            ? '0 0 0 0 rgba(0,0,0,0)'
+            : isFocused
+              ? '0 0 0 3px rgba(79, 70, 229, 0.1)'
+              : '0 0 0 0 rgba(0,0,0,0)',
         }}
-        className={`relative rounded-md border transition-all duration-200`}
+        className="relative rounded-md border transition-all duration-200"
       >
-        <input
-          type={type}
-          id={name}
-          name={name}
-          value={value}
-          onChange={onChange}
-          placeholder={placeholder}
-          disabled={disabled}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-          className={`block w-full px-3 py-2 rounded-md bg-white ${
-            error ? 'border-red-300' : 'border-gray-300'
-          } shadow-sm focus:outline-none sm:text-sm`}
-          {...props}
-        />
+        {multiline ? (
+          <textarea
+            id={name}
+            name={name}
+            value={value}
+            onChange={onChange}
+            placeholder={placeholder}
+            disabled={disabled}
+            rows={rows}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            className={`block w-full px-3 py-2 rounded-md bg-white ${
+              error ? 'border-red-300' : 'border-gray-300'
+            } shadow-sm focus:outline-none sm:text-sm`}
+            {...props}
+          />
+        ) : (
+          <input
+            type={type}
+            id={name}
+            name={name}
+            value={value}
+            onChange={onChange}
+            placeholder={placeholder}
+            disabled={disabled}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            className={`block w-full px-3 py-2 rounded-md bg-white ${
+              error ? 'border-red-300' : 'border-gray-300'
+            } shadow-sm focus:outline-none sm:text-sm`}
+            {...props}
+          />
+        )}
       </motion.div>
-      
+
       {(helperText || error) && (
-        <p className={`mt-1 text-sm ${
-          error ? 'text-red-600' : 'text-gray-500'
-        }`}>
+        <p className={`mt-1 text-sm ${error ? 'text-red-600' : 'text-gray-500'}`}>
           {error || helperText}
         </p>
       )}
@@ -84,6 +104,8 @@ Input.propTypes = {
   helperText: PropTypes.string,
   disabled: PropTypes.bool,
   required: PropTypes.bool,
+  multiline: PropTypes.bool,
+  rows: PropTypes.number,
   className: PropTypes.string,
 };
 
