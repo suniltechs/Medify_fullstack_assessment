@@ -96,8 +96,8 @@ producthub/
 1. Clone the repository:
    
    ```bash
-   git clone https://github.com/suniltechs/medify-fullstack-assessment.git
-   cd medify-fullstack-assessment
+   git clone https://github.com/suniltechs/Medify_fullstack_assessment.git
+   cd Medify_fullstack_assessment
    ```
 2. Install backend dependencies:
 
