@@ -120,7 +120,7 @@ producthub/
     DB_HOST=localhost
     DB_USER=root
     DB_PASSWORD= // Your MySql Password Here
-    DB_NAME=product_management
+    DB_NAME=product_manager
     PORT=5000
     ```
     
@@ -129,30 +129,23 @@ producthub/
   1. Create a MySQL database:
 
      ```
-    CREATE DATABASE IF NOT EXISTS product_manager;
-    USE product_manager;
-    
-    CREATE TABLE IF NOT EXISTS products (
-      id INT AUTO_INCREMENT PRIMARY KEY,
-      name VARCHAR(255) NOT NULL,
-      description TEXT NOT NULL,
-      category VARCHAR(255) NOT NULL,
-      stockQuantity INT NOT NULL,
-      availability ENUM('in-stock', 'out-of-stock', 'pre-order', 'discontinued') NOT NULL DEFAULT 'in-stock',
-      price DECIMAL(10, 2) NOT NULL,
-      image VARCHAR(255),
-      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-      updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-      CHECK (stockQuantity >= 0),
-      CHECK (price >= 0)
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-     ```
-
- 2. Run migration:
-     
-     ```
-     cd backend
-     npx sequelize-cli db:migrate
+      CREATE DATABASE IF NOT EXISTS product_manager;
+      USE product_manager;
+      
+      CREATE TABLE IF NOT EXISTS products (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        description TEXT NOT NULL,
+        category VARCHAR(255) NOT NULL,
+        stockQuantity INT NOT NULL,
+        availability ENUM('in-stock', 'out-of-stock', 'pre-order', 'discontinued') NOT NULL DEFAULT 'in-stock',
+        price DECIMAL(10, 2) NOT NULL,
+        image VARCHAR(255),
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        CHECK (stockQuantity >= 0),
+        CHECK (price >= 0)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
      ```
      
 ### Running Locally
@@ -160,10 +153,10 @@ producthub/
   1. Running Locally
      ```
      # Start backend (http://localhost:5000)
-       npm run dev:backend
+       npm run dev
         
      # Start frontend (http://localhost:5173)
-       npm run dev:frontend
+       npm run dev
      ```
   2. Open your browser and navigate to:
 
