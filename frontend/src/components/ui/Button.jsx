@@ -12,14 +12,19 @@ export const Button = ({
   className = '',
   ...props
 }) => {
-  const baseClasses = 'rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
-  
+  const baseClasses =
+    'rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+
   const variantClasses = {
-    primary: 'bg-accent-light hover:bg-accent-DEFAULT text-white focus:ring-accent-light/50',
-    secondary: 'bg-primary-dark hover:bg-primary-default text-white focus:ring-primary-dark/50',
-    outline: 'bg-transparent border border-primary-dark text-accent-dark hover:bg-primary-dark hover:text-white focus:ring-primary-dark/50',
+    primary:
+      'bg-accent-light hover:bg-accent-DEFAULT text-white focus:ring-accent-light/50',
+    secondary:
+      'bg-primary-dark hover:bg-primary-default text-white focus:ring-primary-dark/50',
+    outline:
+      'bg-transparent border border-primary-dark text-accent-dark hover:bg-primary-dark hover:text-white focus:ring-primary-dark/50',
     danger: 'bg-red-600 hover:bg-red-700 text-white focus:ring-red-500/50',
-    ghost: 'bg-transparent text-primary-dark hover:bg-primary-light/20 focus:ring-primary-dark/50',
+    ghost:
+      'bg-transparent text-primary-dark hover:bg-primary-light/20 focus:ring-primary-dark/50',
   };
 
   const sizeClasses = {
@@ -33,8 +38,18 @@ export const Button = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      whileHover={!disabled ? { scale: 1.03 } : {}}
-      whileTap={!disabled ? { scale: 0.97 } : {}}
+      // Default boxShadow to allow smooth animation
+      style={{ boxShadow: '0 0 0 0 rgba(0,0,0,0)' }}
+      whileHover={
+        !disabled
+          ? { scale: 1.03, boxShadow: '0 0 0 3px rgba(79, 70, 229, 0.1)' }
+          : {}
+      }
+      whileTap={
+        !disabled
+          ? { scale: 0.97, boxShadow: '0 0 0 2px rgba(79, 70, 229, 0.1)' }
+          : {}
+      }
       className={`
         ${baseClasses}
         ${variantClasses[variant]}
@@ -59,4 +74,3 @@ Button.propTypes = {
   fullWidth: PropTypes.bool,
   className: PropTypes.string,
 };
-
